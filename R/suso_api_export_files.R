@@ -75,7 +75,12 @@ suso_export<-function(server= suso_get_api_key("susoServer"),
   url$scheme<-"https"
   ##  QUEST ID
   quid=paste0(str_replace_all(questID, "-", ""), "$", version)
-  url$path<-file.path("api", "v2", "export", "STATA", quid)
+  url$path<-file.path("api", "v2", "export")
+  ## Query
+  url$query <- list(exportType = format,
+                    interviewStatus="All",
+                    questionnaireIdentity=quid,
+                    hasFile="true")
   ##  CREDENTIALS
   usr<-apiUser
   pass<-apiPass
