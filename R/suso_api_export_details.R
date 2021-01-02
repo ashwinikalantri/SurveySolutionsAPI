@@ -24,7 +24,12 @@ suso_details_lastexport <- function(url=suso_get_api_key("susoServer"),
     ## QUEST ID
     quid = paste0(str_replace_all(quid, "-", ""), "$", version)
     ## PATH FOR: details on export status
-    url$path <- file.path("api", "v2", "export", format, quid, "details")
+    url$path <- file.path("api", "v2", "export")
+    ## Query
+    url$query <- list(exportType = format,
+                      interviewStatus="All",
+                      questionnaireIdentity=quid,
+                      hasFile="true")
     ## BUILD URL
     url <- build_url(url)
     ## API CALL
