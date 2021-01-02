@@ -1,7 +1,7 @@
 Package: SurveySolutionsAPI
 Type: Package
 Title: API access to Survey Solutions Server
-Version: 0.2.1
+Version: 0.2.2
 Author: Michael Wild
 Maintainer: Michael Wild <mwild@worldbank.org>
 Repository: MCWconnect
