@@ -110,7 +110,7 @@ suso_export<-function(server= suso_get_api_key("susoServer"),
                                                pass=apiPass,
                                                quid=questID,
                                                version = version,
-                                               format="STATA")$LastUpdateDate, format = "%Y-%m-%dT%H:%M:%S")
+                                               format="STATA")$CompleteDate, format = "%Y-%m-%dT%H:%M:%S")
   ###############################################################################
   ##          START FILE CREATION
   ##              -IFF time diff is larger than treshold,
