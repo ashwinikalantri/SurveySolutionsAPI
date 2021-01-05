@@ -30,10 +30,11 @@ suso_details_lastexport <- function(url=suso_get_api_key("susoServer"),
                       interviewStatus="All",
                       questionnaireIdentity=quid,
                       hasFile="true")
+
     ## BUILD URL
     url <- build_url(url)
-    ## API CALL
 
+    ## API CALL
     test_detail <- GET(url = url, authenticate(usr, pass, type = "basic"))
     stop_for_status(test_detail, task = url)
     aJsonFile <- tempfile()
