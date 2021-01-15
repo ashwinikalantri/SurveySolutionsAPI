@@ -110,7 +110,8 @@ suso_export<-function(server= suso_get_api_key("susoServer"),
                                                pass=apiPass,
                                                quid=questID,
                                                version = version,
-                                               format="STATA")$CompleteDate, format = "%Y-%m-%dT%H:%M:%S")
+                                               format="STATA")$CompleteDate,
+                       format = "%Y-%m-%dT%H:%M:%S")
   ###############################################################################
   ##          START FILE CREATION
   ##              -IFF time diff is larger than threshold,
@@ -118,7 +119,7 @@ suso_export<-function(server= suso_get_api_key("susoServer"),
   ###############################################################################
   ##  1. START FILE CREATION --> file is only created when time difference is larger then reloadTimeDiff
   current_time<-strptime(Sys.time(), format = "%Y-%m-%d %H:%M:%S")
-  timeDiff<-difftime(current_time, time_limit, units = "hours")
+  timeDiff <- as.numeric(difftime(current_time, time_limit, units = "hours"))
   cat("The last file has been created", timeDiff, "hours ago.")
 
   if(difftime(current_time, time_limit, units = "hours")>reloadTimeDiff){
